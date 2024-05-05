@@ -11,6 +11,18 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+            get: createdAt => {
+                const options = {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true 
+                };
+                // Format the date using toLocaleString with custom options
+                return createdAt.toLocaleString('en-US', options);
+            }
         },
         username: {
             type: String,
