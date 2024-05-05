@@ -17,9 +17,9 @@ This is a social network api program. It allows the user to view, post, update, 
 
 ## Screenshot of application
 
-![screenshot of social-network-api](./assets/images/1.png)
-![screenshot of social-network-api](./assets/images/2.png)
-![screenshot of social-network-api](./assets/images/3.png)
+![screenshot of social-network-api](Assets/Images/1.png)
+![screenshot of social-network-api](Assets/Images/1.png)
+![screenshot of social-network-api](Assets/Images/1.png)
 
 ## Credits
 
