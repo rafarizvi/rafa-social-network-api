@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const thoughtSchema = require('./thought');
 
 const userSchema = new Schema(
     {
@@ -13,13 +12,23 @@ const userSchema = new Schema(
         type: String,
         required: true,
         unique: true,
-        // validate: [validateEmail, 'Please fill a valid email address'],
-        // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
+        validate: {
+          validator: (v) => {
+            return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(v);
+          },
+          message: props => `${props.value} is not a valid email`
+        }
       },
 
-      // thoughts: [thoughtSchema._id],
+      thoughts: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }],
 
-      // friends: [userSchema._id],
+      friends: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+      }],
     },
   );
 
